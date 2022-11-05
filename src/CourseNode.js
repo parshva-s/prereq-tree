@@ -1,4 +1,4 @@
-class Course {
+class CourseNode {
     // instance vars
     #subject;
     #number;
@@ -33,5 +33,20 @@ class Course {
     set name(name) {
         this.#subject = name.split(' ')[0];
         this.#number = parseInt(name.split(' ')[1]);
+    }
+
+
+    /**
+     * Find if the prereqs/coreqs of this course contain a given course name.
+     * @param {String} course Name of course to search for
+     * @return {boolean} True if the course is somewhere in the tree
+     */
+    treeContains(course) {
+        if (this.name === course) return true;
+        for (let coreq of this.#coreqs)
+            if (coreq.treeContains(course)) return true;
+        for (let prereq of this.#prereqs)
+            if (prereq.treeContains(course)) return true;
+        return false;
     }
 }
