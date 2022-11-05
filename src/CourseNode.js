@@ -1,3 +1,5 @@
+// CourseNode.js
+
 class CourseNode {
     // instance vars
     #subject;
@@ -36,17 +38,40 @@ class CourseNode {
     }
 
 
+    // master table for name to object conversions
+    static nameToObjectPairs = {};
+
+
+    /**
+     * Convert the prereq and coreq str lists to lists of traversable objects.
+     */
+    convertStrToObj() {
+        for (let i = 0; i < this.prereqs.length; i++) {
+            if (this.prereqs[i] in CourseNode.nameToObjectPairs) {
+                this.prereqs[i] = CourseNode.nameToObjectPairs[this.prereqs[i]];
+                continue;
+            }
+            // prereq has not been processed yet; must process recursively
+            // base case: course with no prereqs or coreqs
+            // FIXME: how do we deal with prereqs that havent been turned into objects yet?
+            // need to search up the prereqs for that course in the master list
+            if (this.prereqs[i].prereqs.length == 0 && this.prereqs[i].coreqs.length == 0) break;
+        }
+    }
+
+
     /**
      * Find if the prereqs/coreqs of this course contain a given course name.
      * @param {String} course Name of course to search for
      * @return {boolean} True if the course is somewhere in the tree
      */
     treeContains(course) {
-        if (this.name === course) return true;
-        for (let coreq of this.#coreqs)
-            if (coreq.treeContains(course)) return true;
-        for (let prereq of this.#prereqs)
+        if (this.name == course) return true;
+        // assume prereq and coreq lists have been str->obj converted
+        for (let prereq of this.prereqs)
             if (prereq.treeContains(course)) return true;
+        for (let coreq of this.coreqs)
+            if (coreq.treeContains(course)) return true;
         return false;
     }
 }
