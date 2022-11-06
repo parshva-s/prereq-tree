@@ -112,6 +112,16 @@ body {
     justify-content: center;
 }
 
+.para {
+    width: 1110px;
+}
+
+#treePara {
+    white-space: pre;
+    text-align: left;
+    padding-left: 10%;
+}
+
 canvas {
     border: 1px solid black;
     margin: 0;

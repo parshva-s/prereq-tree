@@ -8,173 +8,33 @@
     <link href="style.css" rel="stylesheet">
     <title>Course Tree</title>
   </head>
-  
+
   <body>
     <div class="header">Trojan Courses</div>
     <p>Click on the button to open the dropdown menu, and use the input field to search for a specific course.</p>
-      
+
     <div class="grid">
       <div class="dropdown">
         <button onclick="myFunction()" class="dropbtn">Courses</button>
         <div id="myDropdown" class="dropdown-content">
-            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-            <a href="#ECE 201">ECE 201</a>
-            <a href="#ECE 202">ECE 202</a>
-            <a href="#ECE 203">ECE 203</a>
-            <a href="#ECE 209">ECE 209</a>
-            <a href="#ECE 209A">ECE 209A</a>
-            <a href="#ECE 209B">ECE 209B</a>
-            <a href="#ECE 210">ECE 210</a>
-            <a href="#ECE 212">ECE 212</a>
-            <a href="#ECE 220">ECE 220</a>
-            <a href="#ECE 240">ECE 240</a>
-            <a href="#ECE 302">ECE 302</a>
-            <a href="#ECE 303">ECE 303</a>
-            <a href="#ECE 303A">ECE 303A</a>
-            <a href="#ECE 303B">ECE 303B</a>
-            <a href="#ECE 304">ECE 304</a>
-            <a href="#ECE 311">ECE 311</a>
-            <a href="#ECE 312">ECE 312</a>
-            <a href="#ECE 315">ECE 315</a>
-            <a href="#ECE 321">ECE 321</a>
-            <a href="#ECE 322">ECE 322</a>
-            <a href="#ECE 325">ECE 325</a>
-            <a href="#ECE 330">ECE 330</a>
-            <a href="#ECE 332">ECE 332</a>
-            <a href="#ECE 340">ECE 340</a>
-            <a href="#ECE 341">ECE 341</a>
-            <a href="#ECE 342">ECE 342</a>
-            <a href="#ECE 342A">ECE 342A</a>
-            <a href="#ECE 342B">ECE 342B</a>
-            <a href="#ECE 360">ECE 360</a>
-            <a href="#ECE 370">ECE 370</a>
-            <a href="#ECE 380">ECE 380</a>
-            <a href="#ECE 380A">ECE 380A</a>
-            <a href="#ECE 380B">ECE 380B</a>
-            <a href="#ECE 401">ECE 401</a>
-            <a href="#ECE 402">ECE 402</a>
-            <a href="#ECE 403">ECE 403</a>
-            <a href="#ECE 405">ECE 405</a>
-            <a href="#ECE 406">ECE 406</a>
-            <a href="#ECE 407">ECE 407</a>
-            <a href="#ECE 408">ECE 408</a>
-            <a href="#ECE 409">ECE 409</a>
-            <a href="#ECE 410">ECE 410</a>
-            <a href="#ECE 412">ECE 412</a>
-            <a href="#ECE 420">ECE 420</a>
-            <a href="#ECE 421">ECE 421</a>
-            <a href="#ECE 422">ECE 422</a>
-            <a href="#ECE 423">ECE 423</a>
-            <a href="#ECE 430">ECE 430</a>
-            <a href="#ECE 432">ECE 432</a>
-            <a href="#ECE 433">ECE 433</a>
-            <a href="#ECE 434">ECE 434</a>
-            <a href="#ECE 440">ECE 440</a>
-            <a href="#ECE 442">ECE 442</a>
-            <a href="#ECE 449">ECE 449</a>
-            <a href="#ECE 450">ECE 450</a>
-            <a href="#ECE 452">ECE 452</a>
-            <a href="#ECE 455">ECE 455</a>
-            <a href="#ECE 456">ECE 456</a>
-            <a href="#ECE 457">ECE 457</a>
-            <a href="#ECE 458">ECE 458</a>
-            <a href="#ECE 460">ECE 460</a>
-            <a href="#ECE 461">ECE 461</a>
-            <a href="#ECE 464">ECE 464</a>
-            <a href="#ECE 471">ECE 471</a>
-            <a href="#ECE 472">ECE 472</a>
-            <a href="#ECE 474">ECE 474</a>
-            <a href="#ECE 475">ECE 475</a>
-            <a href="#ECE 476">ECE 476</a>
-            <a href="#ECE 478">ECE 478</a>
-            <a href="#ECE 485">ECE 485</a>
-            <a href="#ECE 486">ECE 486</a>
-            <a href="#ECE 487">ECE 487</a>
-            <a href="#ECE 490">ECE 490</a>
-            <a href="#ECE 491">ECE 491</a>
-            <a href="#ECE 493">ECE 493</a>
-            <a href="#ECE 494">ECE 494</a>
-            <a href="#ECE 495">ECE 495</a>
-            <a href="#ECE 502">ECE 502</a>
-            <a href="#ECE 511">ECE 511</a>
-            <a href="#ECE 512">ECE 512</a>
-            <a href="#ECE 521">ECE 521</a>
-            <a href="#ECE 522">ECE 522</a>
-            <a href="#ECE 530">ECE 530</a>
-            <a href="#ECE 531">ECE 531</a>
-            <a href="#ECE 540">ECE 540</a>
-            <a href="#ECE 541">ECE 541</a>
-            <a href="#ECE 546">ECE 546</a>
-            <a href="#ECE 547">ECE 547</a>
-            <a href="#ECE 551">ECE 551</a>
-            <a href="#ECE 553">ECE 553</a>
-            <a href="#ECE 558">ECE 558</a>
-            <a href="#ECE 559">ECE 559</a>
-            <a href="#ECE 560">ECE 560</a>
-            <a href="#ECE 561">ECE 561</a>
-            <a href="#ECE 570">ECE 570</a>
-            <a href="#ECE 571">ECE 571</a>
-            <a href="#ECE 572">ECE 572</a>
-            <a href="#ECE 576">ECE 576</a>
-            <a href="#ECE 577">ECE 577</a>
-            <a href="#ECE 578">ECE 578</a>
-            <a href="#ECE 582">ECE 582</a>
-            <a href="#ECE 583">ECE 583</a>
-            <a href="#ECE 601">ECE 601</a>
-            <a href="#ECE 602">ECE 602</a>
-            <a href="#ECE 623">ECE 623</a>
-            <a href="#ECE 624">ECE 624</a>
-            <a href="#ECE 625">ECE 625</a>
-            <a href="#ECE 626">ECE 626</a>
-            <a href="#ECE 627">ECE 627</a>
-            <a href="#ECE 631">ECE 631</a>
-            <a href="#ECE 633">ECE 633</a>
-            <a href="#ECE 635">ECE 635</a>
-            <a href="#ECE 636">ECE 636</a>
-            <a href="#ECE 644">ECE 644</a>
-            <a href="#ECE 646">ECE 646</a>
-            <a href="#ECE 647">ECE 647</a>
-            <a href="#ECE 650">ECE 650</a>
-            <a href="#ECE 658">ECE 658</a>
-            <a href="#ECE 660">ECE 660</a>
-            <a href="#ECE 664">ECE 664</a>
-            <a href="#ECE 665">ECE 665</a>
-            <a href="#ECE 673">ECE 673</a>
-            <a href="#ECE 675">ECE 675</a>
-            <a href="#ECE 684">ECE 684</a>
-            <a href="#ECE 686">ECE 686</a>
-            <a href="#ECE 691">ECE 691</a>
-            <a href="#ECE 692">ECE 692</a>
+          <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()">
+          <div id="dropOptions"></div>
         </div>    
       </div>
       <div class="tree">
+        <div class="para">
+          <p id="treePara"></p>
+        </div>
         <canvas id="tree" width=1110 height=550></canvas>        
       </div>
     </div>
-    <script src="src/index.js" type="module"></script>
-    <script>
-      /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-      
-      function filterFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("myDropdown");
-        a = div.getElementsByTagName("a");
-        for (i = 0; i < a.length; i++) {
-          txtValue = a[i].textContent || a[i].innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-          } else {
-            a[i].style.display = "none";
-          }
-        }
-      }
-      </script>
 
+    <!-- <script src="src/index.js" type="module"></script> -->
+    <script src="src/CourseNode.js" type="module"></script>
+    <script src="src/hardcodedCourses.js" type="module"></script>
+
+    <script src="src/search.js"></script>
+    <script src="src/DropOptionsBinding.js" type="module"></script>
+    <script src="src/ParagraphWriter.js" type="module"></script>
   </body>
 </html>
