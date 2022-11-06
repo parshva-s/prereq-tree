@@ -1,6 +1,6 @@
 // hardcodedCourses.js
 
-import CourseNode from "./CourseNode";
+import CourseNode from "./CourseNode.js";
 
 let courses = [];
 
@@ -182,4 +182,8 @@ courses.push(new CourseNode("ENGG 400",
                             null,
                             null));
 
-export {courses};
+
+// now that courses is populated, we can create key-value pairs
+//  in CourseNode.nameToObjPairs
+for (let course of courses)
+    CourseNode.nameToObjectPairs[course.name] = course;

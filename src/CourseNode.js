@@ -1,7 +1,5 @@
 // CourseNode.js
 
-import { courses } from "./hardcodedCourses";
-
 export default class CourseNode {
     // instance vars
     #subject;
@@ -38,8 +36,10 @@ export default class CourseNode {
     set coreqs(co) { this.#coreqs = co; }
 
     set name(name) {
-        this.#subject = name.split(' ')[0];
-        this.#number = parseInt(name.split(' ')[1]);
+        let splitName = name.split(' ');
+        let nParts = splitName.length;
+        this.#subject = name.split(' ', nParts-1).join(' ');
+        this.#number = parseInt(name.split(' ')[nParts-1]);
     }
 
 
@@ -49,18 +49,41 @@ export default class CourseNode {
 
     /**
      * Convert the prereq and coreq str lists to lists of traversable objects.
+     * 
+     * Assumptions:
+     *  - this.objectified is false, 
+     *  - this.prereqs and this.coreqs are lists of lists of strings
      */
-    convertStrToObj() {
+    objectify() {
         for (let i = 0; i < this.prereqs.length; i++) {
-            if (this.prereqs[i] in CourseNode.nameToObjectPairs) {
+            if (typeof(this.prereqs[i]) == "string") {
+                // as opposed to a subarray. can operate on the object directly
+                if (!CourseNode.nameToObjectPairs[this.prereqs[i]].objectified) {
+                    // the corresp. child is not objectified, and we must
+                    //  objectify it before adding it.
+                    CourseNode.nameToObjectPairs(this.prereqs[i]).objectify();
+                }
+                // the corresp. child is now objectified, can replace
+                //  our list's str directly with the child object and move on.
                 this.prereqs[i] = CourseNode.nameToObjectPairs[this.prereqs[i]];
-                continue;
             }
-            // prereq has not been processed yet; must process recursively
-            // base case: course with no prereqs or coreqs
-            // FIXME: how do we deal with prereqs that havent been turned into objects yet?
-            // need to search up the prereqs for that course in the master list
-            if (this.prereqs[i].prereqs.length == 0 && this.prereqs[i].coreqs.length == 0) break;
+            else {
+                // subarray of children OR'd with each other.
+                //  repeat exactly what we've done but on the subarray elements
+                for (let j = 0; j < this.prereqs[i].length; j++) {
+                    if (typeof(this.prereqs[i][j]) == "string") {
+                        if (!CourseNode.nameToObjectPairs[this.prereqs[i][j]].objectified) {
+                            CourseNode.nameToObjectPairs(this.prereqs[i][j]).objectify();
+                        }
+                        this.prereqs[i][j] = CourseNode.nameToObjectPairs[this.prereqs[i][j]];
+                    }
+                    else {
+                        // subsubarray of children AND'ed with each other
+                        // TODO: finish objectify
+                    }
+                }
+
+            }
         }
 
         this.#objectified = true;
@@ -70,7 +93,7 @@ export default class CourseNode {
     /**
      * Find if the prereqs/coreqs of this course contain a given course name.
      * @param {String} course Name of course to search for
-     * @return {boolean} True if the course is somewhere in the tree
+     * @returns {boolean} True if the course is somewhere in the tree
      */
     treeContains(course) {
         if (this.name == course) return true;
