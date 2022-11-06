@@ -1,5 +1,7 @@
 // CourseNode.js
 
+import { courses } from "./hardcodedCourses";
+
 export default class CourseNode {
     // instance vars
     #subject;

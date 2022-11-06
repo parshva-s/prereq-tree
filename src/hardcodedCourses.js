@@ -130,3 +130,5 @@ courses.push(new CourseNode("ENG M 401",
 courses.push(new CourseNode("ENGG 400",
                             null,
                             null));
+
+export {courses};
