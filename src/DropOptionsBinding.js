@@ -3,7 +3,7 @@
 import CourseNode from "./CourseNode.js";
 
 // https://www.youtube.com/watch?v=2ZphE5HcQPQ
-export default class DropOptionsBinding {
+class DropOptionsBinding {
     constructor(element) {
         this.divElement = element;
         this.options = Object.keys(CourseNode.nameToObjectPairs);
@@ -19,7 +19,6 @@ export default class DropOptionsBinding {
         const a = document.createElement("a");
         a.textContent = text;
         a.setAttribute("id", text);
-        a.setAttribute("href", '#' + text);
         return a;
     }
 
@@ -49,7 +48,6 @@ export default class DropOptionsBinding {
  */
 function handleOptionPress(name) {
     console.log(name);
-
 }
 
 const div = document.getElementById("dropOptions");

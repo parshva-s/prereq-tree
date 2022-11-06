@@ -152,7 +152,8 @@ export default class CourseNode {
      */
     treeContains(course) {
         if (this.name == course) return true;
-        // assume prereq and coreq lists have been str->obj converted
+        this.objectify();
+        // prereq and coreq lists have been str->obj converted
         for (let prereq of this.prereqs)
             if (prereq.treeContains(course)) return true;
         for (let coreq of this.coreqs)
