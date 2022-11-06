@@ -182,11 +182,50 @@ courses.push(new CourseNode("ENGG 400",
                             null,
                             null));
 
+courses.push(new CourseNode("CH E 243",
+                            ["Math 101"],
+                            null));
 
+courses.push(new CourseNode("MAT E 201",
+                            ["CHEM 105"],
+                            null));
 
+courses.push(new CourseNode("MECH E 250",
+                            ["ENG 130", "EN PH 131", "MATH 101"],
+                            null));
 
+courses.push(new CourseNode("ECE 304",
+                            ["ECE 210", "ECE 302"],
+                            null));
 
-//<>------------------------LINE OF NO CROSSING---------------------------</>
+courses.push(new CourseNode("ECE 401",
+                            ["ECE 302"],
+                            null));
+
+courses.push(new CourseNode("ECE 402",
+                            ["ECE 303"],
+                            [["ECE 360", "ECE 362"]]));
+                        
+courses.push(new CourseNode("ECE 403",
+                            ["ECE 304"],
+                            ["ECE 410"]));
+
+courses.push(new CourseNode("ECE 410",
+                            null,
+                            ["ECE 304"]));
+
+courses.push(new CourseNode("ECE 432",
+                            ["ECE 332"],
+                            null));
+
+courses.push(new CourseNode("ECE 433",
+                            ["ECE 330", "ECE 332"],
+                            null));
+
+courses.push(new CourseNode("ECE 440",
+                            ["ECE 340"],
+                            null));
+
 courses.push(new CourseNode("CMPUT 274",
                             null,
                             null));
