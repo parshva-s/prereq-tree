@@ -11,7 +11,7 @@ body {
     text-align: center;
     margin: 0;
     height: 100%; 
-    overflow: hidden
+    overflow: auto;
 }
 
 .header {
@@ -19,7 +19,8 @@ body {
     background-color: #3e8e41;
     width: 100%;
     height: 15vh;
-    color: white;
+    color: #e4be43;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: xxx-large;
     align-items: center;
     justify-content: center;
@@ -29,19 +30,20 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 5vh;
 }
 
 /* https://www.w3schools.com/howto/howto_js_filter_dropdown.asp */
 .dropbtn {
     background-color: #3e8e41;
-    color: white;
+    color: #e4be43;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     overflow: scroll;
     display:flex;
-    margin-left: 75px;
+    margin-left: 10vw;
     /* width: 10%; */
   }
   
@@ -69,7 +71,7 @@ body {
     position: left;
     /* display: inline-block; */
     margin: 0;
-    width: 20vw;
+    width: 30vw;
     align-items: center;
     justify-content: center;
 }
@@ -80,8 +82,8 @@ body {
     position: absolute;
     background-color: #f6f6f6;
     min-width: 230px;
-    margin: 0;
-    height: 70vh; 
+    margin: 0 10vw;
+    height: 65vh; 
     overflow: scroll;
     border: 1px solid #ddd;
     z-index: 1;
@@ -104,21 +106,24 @@ body {
 }
 
 .tree {
-    width: 80vw;
+    width: 60vw;
+    height: auto;
     /* flex: 1; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    border: solid black;
 }
 
 .para {
-    width: 1110px;
+    width: 90%;
 }
 
 #treePara {
     white-space: pre;
     text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
     padding-left: 10%;
 }
 
