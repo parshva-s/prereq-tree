@@ -63,4 +63,70 @@ courses.push(new CourseNode("ECE 312",
                             ["ECE 220", "ECE 212"],
                             ["ECE 340"]));
 
-/*------ LINE OF NO CROSSING ------*/
+courses.push(new CourseNode("ECE 330",
+                            ["ECE 203"],
+                            null));
+
+courses.push(new CourseNode("ECE 340",
+                            ["ECE 240"],
+                            null));
+
+courses.push(new CourseNode("ECE 370",
+                            ["MATH 102", "MATH 209", "PHYS 230"],
+                            null));
+
+courses.push(new CourseNode("MATH 309",
+                            ["MATH 209"],
+                            null));
+
+courses.push(new CourseNode("WKEXP 902",
+                            ["WKEXP 901"],
+                            null));
+
+courses.push(new CourseNode("WKEXP 903",
+                            ["WKEXP 902"],
+                            null));
+
+courses.push(new CourseNode("ECE 332",
+                            ["ECE 330"],
+                            null));
+
+courses.push(new CourseNode("ECE 342",
+                            ["MATH 209"],
+                            null));
+
+courses.push(new CourseNode("ECE 360",
+                            ["ECE 203", "ECE 240"],
+                            null));
+
+courses.push(new CourseNode("ECE 380",
+                            ["ECE 240"],
+                            null));
+
+courses.push(new CourseNode("WKEXP 904",
+                            ["WKEXP 903"],
+                            null));
+
+courses.push(new CourseNode("WKEXP 905",
+                            ["WKEXP 904"],
+                            null));
+
+courses.push(new CourseNode("ECE 490",
+                            ["ECE 312"],
+                            null));
+
+courses.push(new CourseNode("ENGG 404",
+                            null,
+                            null));
+
+courses.push(new CourseNode("ECE 491",
+                            ["ECE 490"],
+                            ["ECE 303"]));
+
+courses.push(new CourseNode("ENG M 401",
+                            null,
+                            null));
+
+courses.push(new CourseNode("ENGG 400",
+                            null,
+                            null));
