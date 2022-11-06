@@ -18,6 +18,7 @@ export default class DropOptionsBinding {
     static createDropdownItem(text) {
         const a = document.createElement("a");
         a.textContent = text;
+        a.setAttribute("id", text);
         a.setAttribute("href", '#' + text);
         return a;
     }
@@ -31,8 +32,27 @@ export default class DropOptionsBinding {
             this.divElement.appendChild(a);
         }
     }
+
+    addListeners() {
+        for (let name of this.options) {
+            const a = document.getElementById(name);
+            a.addEventListener("click", function(){ handleOptionPress(name); });
+        }
+    }
+
+}
+
+
+/**
+ * Handle the user having pressed a course name in the dropdown menu.
+ * @param {String} name The name of the selected course
+ */
+function handleOptionPress(name) {
+    console.log(name);
+
 }
 
 const div = document.getElementById("dropOptions");
 const divBinding = new DropOptionsBinding(div);
 divBinding.populateOptions();
+divBinding.addListeners();
