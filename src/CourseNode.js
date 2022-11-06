@@ -1,6 +1,6 @@
 // CourseNode.js
 
-class CourseNode {
+export default class CourseNode {
     // instance vars
     #subject;
     #number;
