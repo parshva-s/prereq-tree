@@ -183,6 +183,14 @@ courses.push(new CourseNode("ENGG 400",
                             null));
 
 
+
+
+
+//<>------------------------LINE OF NO CROSSING---------------------------</>
+
+
+
+
 // now that courses is populated, we can create key-value pairs
 //  in CourseNode.nameToObjPairs
 for (let course of courses)
