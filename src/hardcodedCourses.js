@@ -134,6 +134,10 @@ courses.push(new CourseNode("WKEXP 903",
                             ["WKEXP 902"],
                             null));
 
+courses.push(new CourseNode("ECE 303",
+                            ["ECE 302"],
+                            null));
+
 courses.push(new CourseNode("ECE 332",
                             ["ECE 330"],
                             null));
