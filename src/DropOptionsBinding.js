@@ -1,6 +1,7 @@
 // DropOptionsBinding.js
 
 import CourseNode from "./CourseNode.js";
+import ParagraphWriter from "./ParagraphWriter.js";
 
 // https://www.youtube.com/watch?v=2ZphE5HcQPQ
 class DropOptionsBinding {
@@ -47,7 +48,8 @@ class DropOptionsBinding {
  * @param {String} name The name of the selected course
  */
 function handleOptionPress(name) {
-    console.log(name);
+    const writer = new ParagraphWriter(document.getElementById("treePara"));
+    writer.writeOut(ParagraphWriter.generateTextTree(name, 0));
 }
 
 const div = document.getElementById("dropOptions");
