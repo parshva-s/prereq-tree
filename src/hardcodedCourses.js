@@ -187,3 +187,18 @@ courses.push(new CourseNode("ENGG 400",
 //  in CourseNode.nameToObjPairs
 for (let course of courses)
     CourseNode.nameToObjectPairs[course.name] = course;
+
+let x = new CourseNode("ECE 666", null, null);
+console.log(x.name);
+console.log(CourseNode.nameToObjectPairs["ECE 220"].name);
+console.log(CourseNode.nameToObjectPairs["ECE 212"].name);
+console.log(CourseNode.nameToObjectPairs["ECE 340"].name);
+console.log(CourseNode.nameToObjectPairs["ECE 312"].name);
+
+console.log(CourseNode.nameToObjectPairs["ECE 312"].objectified);
+CourseNode.nameToObjectPairs["ECE 312"].objectify();
+CourseNode.nameToObjectPairs["ECE 212"].objectify();
+console.log(CourseNode.nameToObjectPairs["ECE 312"].objectified);
+
+console.log("DICTIONARY:");
+console.log(CourseNode.nameToObjectPairs);

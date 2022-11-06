@@ -9,7 +9,7 @@ let ctx = cnv.getContext("2d");
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-// let courseName = "ECE 312";
+let courseName = "ECE 312";
 
 let coordinate=[];
 let layerSize = {};
