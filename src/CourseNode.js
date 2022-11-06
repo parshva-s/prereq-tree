@@ -6,6 +6,7 @@ class CourseNode {
     #number;
     #prereqs;
     #coreqs;
+    #objectified;
 
 
     // constructor
@@ -13,6 +14,7 @@ class CourseNode {
         this.name = name;
         this.#prereqs = pre;
         this.#coreqs = co;
+        this.#objectified = false;
     }
 
 
@@ -21,6 +23,7 @@ class CourseNode {
     get number() { return this.#number; }
     get prereqs() { return this.#prereqs; }
     get coreqs() { return this.#coreqs; }
+    get objectified() { return this.#objectified; }
 
     get name() { return this.#subject + ' ' + this.#number; }
     get level() { return Math.floor(this.#number / 100); }
@@ -57,6 +60,8 @@ class CourseNode {
             // need to search up the prereqs for that course in the master list
             if (this.prereqs[i].prereqs.length == 0 && this.prereqs[i].coreqs.length == 0) break;
         }
+
+        this.#objectified = true;
     }
 
 
