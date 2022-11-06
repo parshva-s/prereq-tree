@@ -10,6 +10,53 @@ let courses = [];
  *  that will alternate between "OR" and "AND".
  * For example, (A and B) or C will be represented by [[[A, B], C]].
  */
+courses.push(new CourseNode("CHEM 103",
+                            null,
+                            null));
+
+courses.push(new CourseNode("ENGG 100",
+                            null,
+                            null));
+
+courses.push(new CourseNode("ENGG 130",
+                            null,
+                            ["MATH 100"]));
+
+courses.push(new CourseNode("ENGL 199",
+                            null,
+                            null));
+                            
+courses.push(new CourseNode("MATH 100",
+                            null,
+                            null));
+
+courses.push(new CourseNode("PHYS 130",
+                            null,
+                            ["MATH 100"]));
+
+courses.push(new CourseNode("CHEM 105",
+                            ["CHEM 103"],
+                            null));
+
+courses.push(new CourseNode("ENCMP 100",
+                            null,
+                            null));
+
+courses.push(new CourseNode("ENGG 160",
+                            null,
+                            ["ENGL 199"]));
+                            
+courses.push(new CourseNode("EN PH 131",
+                            ["MATH 100", "ENGG 130"],
+                            ["MATH 101"]));
+
+courses.push(new CourseNode("MATH 101",
+                            ["MATH 100"],
+                            null));
+
+courses.push(new CourseNode("MATH 102",
+                            null,
+                            ["MATH 100"]));
 
 courses.push(new CourseNode("ECE 202",
                             ["MATH 101", "MATH 102"],
