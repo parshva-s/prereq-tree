@@ -55,6 +55,9 @@ export default class CourseNode {
      *  - this.prereqs and this.coreqs are lists of lists of strings
      */
     objectify() {
+        // verify assumptions
+        if (this.objectified) return;
+
         // blasted nested fors. is there a better way to do this?
         // check that the pre/coreqs are not null before attempting to iterate through them
         // objectify all the prereqs first.
