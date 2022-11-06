@@ -25,6 +25,12 @@ body {
     justify-content: center;
 }
 
+.grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /* https://www.w3schools.com/howto/howto_js_filter_dropdown.asp */
 .dropbtn {
     background-color: #3e8e41;
@@ -59,9 +65,11 @@ body {
 }
 
 .dropdown {
+    /* flex: 1; */
     position: left;
-    display: inline-block;
-    width: 85%;
+    /* display: inline-block; */
+    margin: 0;
+    width: 20vw;
     align-items: center;
     justify-content: center;
 }
@@ -93,4 +101,20 @@ body {
 
 .show {
     display: block;
+}
+
+.tree {
+    width: 80vw;
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    border: 1px solid black;
+    margin: 0;
+    /* width: 100%;
+    height: 75vh; */
 }
