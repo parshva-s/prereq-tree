@@ -1,51 +1,65 @@
 "use strict";
 
+// import hardcodedCourses from "./hardcodedCourses.js";
+import CourseNode from "./CourseNode.js"
+
 let cnv = document.getElementById("tree");
 let ctx = cnv.getContext("2d");
 
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, cnv.width, cnv.height);
 
-nodeDraw(CourseNode,1)
-// ctx.beginPath();
-// ctx.moveTo(cnv.width/2, 40+40);
-// ctx.lineTo(cnv.width/3, 40+100);
-// ctx.moveTo(cnv.width/2, 40+40);
-// ctx.lineTo(cnv.width/2, 40+100);
-// ctx.moveTo(cnv.width/2, 40+40);
-// ctx.lineTo(cnv.width*9/10, 40+100);
-// ctx.endPath();
-ctx.stroke();
+// let courseName = "ECE 312";
 
-function nodeDraw(courseNode, layer) {
+let coordinate=[];
+let layerSize = {};
+
+nodeDraw(courseName,1, cnv.width/1.5);
+
+
+function nodeDraw(name, layer, width) {
     let flag = false;
-    // if (courseNode.nameToObjectPairs{})
-    for (let i = 0; i < name.length; i++)  {
-        console.log(name[i])
-        if (typeof name[i] == "object") {
-            console.log(name[i])
-            nodeDraw(name[i],layer+1);
+    CourseNode.nameToObjectPairs[name].objectify();
+    // console.log(name);
+    console.log(coordinate)
+    if (CourseNode.nameToObjectPairs[name].coreqs === null && CourseNode.nameToObjectPairs[name].prereqs === null) {
+        while (coordinate.findIndex(coord => coord.join() == [width, layer].join())!== -1){
+            width -= 150;
         }
-        else{
-            console.log(name.length)
-            console.log(layer)
-            ctx.fillStyle = "#4DDBBE";
-            ctx.beginPath();
-            ctx.ellipse(60+cnv.width, 40*layer, 60,40, 0,0, Math.PI *2);
-            ctx.fill();
-            ctx.fillStyle = "black"
-            ctx.font = "20px Arial";
-            ctx.textAlign = "right";
-            for (let j = 0; j < name.length; j++){
-                if (typeof name[j] == "object") {
-                    flag = true
-                }
-            }
-            if (flag == true) {
-                ctx.fillText(name[i], cnv.width*(i+1)/(name.length), 60*layer);
-            } else{
-                ctx.fillText(name[i], cnv.width*(i+1)/(name.length+1), 60*layer);
-            }
+        coordinate.push([width,layer]);
+        ctx.fillStyle = "#4DDBBE";
+        ctx.beginPath();
+        ctx.ellipse(width, 100*layer, 60,40, 0,0, Math.PI *2);
+        ctx.fill();
+        ctx.fillStyle = "black"
+        ctx.font = "20px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(CourseNode.nameToObjectPairs[name].name,width,100*layer);
+        console.log(CourseNode.nameToObjectPairs[name].name + ", " + width + ", " + 100*layer)
+        if (layerSize[layer] > 0) {
+            console.log("bruh");
+            layerSize[layer] += 1;
+        } else {
+            layerSize[layer] = 1;
         }
+        ctx.stroke();
+    } else { //coreq doesnt equal null
+        if (CourseNode.nameToObjectPairs[name].coreqs !== null) {
+            for (let i = 0; i < CourseNode.nameToObjectPairs[name].coreqs.length; i++)  {
+                console.log("coreq: "+ CourseNode.nameToObjectPairs[name].coreqs[i].name);
+                width-=150;
+                nodeDraw(CourseNode.nameToObjectPairs[name].coreqs[i].name,layer, width+150);
+
+            }
+        CourseNode.nameToObjectPairs[name].coreqs = null;
+        }
+        if (CourseNode.nameToObjectPairs[name].prereqs !== null) {
+            for (let i = 0; i < CourseNode.nameToObjectPairs[name].prereqs.length; i++)  {
+                console.log("prereq: "+ CourseNode.nameToObjectPairs[name].prereqs[i].name);
+                nodeDraw(CourseNode.nameToObjectPairs[name].prereqs[i].name,layer+1, width+75);
+            }
+        CourseNode.nameToObjectPairs[name].prereqs = null;
+        }
+        nodeDraw(CourseNode.nameToObjectPairs[name].name, layer, width);
     }
 }
